@@ -1,16 +1,14 @@
-import express, { Router, Request, Response, NextFunction } from 'express';
-import {
-    createNote,
-    getAllNotes,
-    getNoteById,
-    updateNote,
-    deleteNote,
-} from '../controllers/note.controller';
+import { Router } from 'express';
+import { createNote, getAllNotes, getNoteById, updateNote, deleteNote } from '../controllers/note.controller';
+// import authMiddleware from '../middleware/AuthMiddleware';
+
 const router = Router();
-router.get('/notes', getAllNotes);          
-router.get('/notes/:id', getNoteById);       
-router.post('/notes', createNote);          
-router.put('/notes/:id', updateNote);        
-router.delete('/notes/:id', deleteNote);     
+
+router.get('/', getAllNotes);
+router.get('/:id', getNoteById);
+router.post('/', createNote); 
+router.put('/:id', updateNote);
+router.delete('/:id', deleteNote);
+
 
 export default router;
